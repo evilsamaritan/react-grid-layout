@@ -296,9 +296,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
     // Move the element to the dragged location.
     const isUserAction = true;
 
-    const moveFunc = this.props.moveElement && moveElement;
-
-    layout = moveFunc(
+    layout = (this.props?.moveElement ?? moveElement)(
         layout,
         l,
         x,
@@ -342,9 +340,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
     // Move the element here
     const isUserAction = true;
 
-    const moveFunc = this.props.moveElement && moveElement;
-
-    layout = moveFunc(
+    layout = (this.props?.moveElement ?? moveElement)(
       layout,
       l,
       x,
