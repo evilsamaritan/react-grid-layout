@@ -112,15 +112,15 @@ declare namespace ReactGridLayout {
     ) => void;
 
     type MoveElement = (
-      layout: any,
-      l: any,
+      layout: Layout[],
+      l: Layout,
       x: number,
       y: number,
       isUserAction: boolean,
       preventCollision: boolean,
       compactType: 'vertical' | 'horizontal' | "none" | null,
       cols: number
-    ) => Layout
+    ) => Layout[]
 
     interface CoreProps {
         /**
