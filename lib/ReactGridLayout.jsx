@@ -107,6 +107,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
       w: 1
     },
     resizeHandles: ["se"],
+    moveElement: undefined,
     onLayoutChange: noop,
     onDragStart: noop,
     onDrag: noop,
@@ -294,16 +295,19 @@ export default class ReactGridLayout extends React.Component<Props, State> {
 
     // Move the element to the dragged location.
     const isUserAction = true;
-    layout = moveElement(
-      layout,
-      l,
-      x,
-      y,
-      isUserAction,
-      this.props.preventCollision,
-      compactType(this.props),
-      cols
-    );
+
+    const moveFunc = this.props.moveElement && moveElement;
+
+    layout = moveFunc(
+        layout,
+        l,
+        x,
+        y,
+        isUserAction,
+        this.props.preventCollision,
+        compactType(this.props),
+        cols
+      );
 
     this.props.onDrag(layout, oldDragItem, l, placeholder, e, node);
 
@@ -337,13 +341,16 @@ export default class ReactGridLayout extends React.Component<Props, State> {
 
     // Move the element here
     const isUserAction = true;
-    layout = moveElement(
+
+    const moveFunc = this.props.moveElement && moveElement;
+
+    layout = moveFunc(
       layout,
       l,
       x,
       y,
       isUserAction,
-      preventCollision,
+      this.props.preventCollision,
       compactType(this.props),
       cols
     );
