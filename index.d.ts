@@ -14,7 +14,7 @@ import * as React from 'react';
 export as namespace ReactGridLayout;
 export = ReactGridLayout;
 
-declare class ReactGridLayout extends React.Component<ReactGridLayout.ReactGridLayoutProps> {}
+declare class ReactGridLayout extends React.Component<React.PropsWithChildren<ReactGridLayout.ReactGridLayoutProps>> {}
 
 type ResizeHandle = 's' | 'w' | 'e' | 'n' | 'sw' | 'nw' | 'se' | 'ne';
 
